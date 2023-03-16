@@ -1,4 +1,5 @@
 var email = require("emailjs/email");
+//import { SMTPClient } from 'emailjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -6,11 +7,14 @@ module.exports = (formulario: any) =>
 {
 const token : string = jwt.sign(formulario.correo, process.env.TOKEN_SECRET || 'prueba');
 console.log(token,formulario.correo,process.env.TOKEN_SECRET);
-/*
+
+
+
 var server = email.server.connect({
 user:
-"desarrollo@correo.com",
-password:"prueba",
+"ingenieria.computacion.utm@gmail.com",
+password:"snpdqcgnxdiydvbv",
+port:587,
 host:
 "smtp.gmail.com",
 ssl: true,
@@ -19,8 +23,8 @@ ssl: true,
 var message: any ={};
 message =
 {
-from: "Desarrollo UTM <erik@mixteco.utm.mx>",
-to: formulario.correo,
+from: "ingenieria.computacion.utm@gmail.com",
+to: "vaaa020526@gs.utm.mx",
 bcc: "",
 subject: "Cambio de contraseña",
 attachment: [
@@ -30,7 +34,8 @@ En la siguiente liga podrás cambiar tu contraseña:
 <br><br>
 `, alternative: true }
 ]
-};*/
+};
+console.log(message)
 
-//server.send(message, function(err:any, message:any) { console.log(1); });
+server.send(message, function(err:any, message:any) { console.log(1); });
 }

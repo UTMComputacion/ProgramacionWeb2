@@ -6,7 +6,7 @@ import {HomeComponent} from './components/home/home.component'
 import {CategoriasComponent} from './components/categorias/categorias.component'
 import{ClientesComponent} from './components/clientes/clientes.component';
 import { ProductosComponent } from './components/productos/productos.component';
-
+import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import {NavigationComponent} from './components/navigation/navigation.component'
 import * as $ from 'jquery';
 const routes: Routes = [
@@ -18,6 +18,10 @@ pathMatch: "full"
 {
 path: 'login',
 component: LoginComponent,
+},
+{
+    path: 'recuperar',
+    component: RecuperarComponent,
 },
 {
     path: 'home',
