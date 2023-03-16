@@ -1,0 +1,73 @@
+<div class="bodyLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l8 offset-l2 loginDiv">
+                <div class="row loginContainer">
+                    <div class="col s12 m6 l6">
+                        <div class="col s11 offset-s1">
+                            <img src="assets/img/utm_ova.gif" class="responsive-img" alt="">
+                        </div>
+                    </div>
+                    <div class="col s12 m5 l5 offset-l1 offset-m1">
+                        <div class="loginTitulo">
+                            <h5>Iniciar Sesión</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 customInput">
+                                <i class="material-icons prefix">email</i>
+                                <input [(ngModel)]="usuario.correo" class="browser-default" type="email" name="email"
+                                    id="email" placeholder="correo" autocomplete="off">
+                            </div>
+                            <div class="col s12 customInput">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input [(ngModel)]="usuario.password" class="browser-default" type="password"
+                                    name="password" id="password" placeholder="contraseña" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn col l12 s12 m12 btnLogin " (click)="verificarUsuario()">
+                                LOGIN
+                            </button>
+                            <div class="col s12 m12 l12 divOlvide">
+                                <a (click)="modalCambiarContrasenya()">Olvidé mi contraseña!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalCambiarContrasenya" class="modal">
+    <div class="modal-content">
+    <div class="row" style="margin-bottom: 0px !important;">
+    <div class="col s12">
+    <h5 class="center">Recuperar contraseña</h5>
+    </div>
+    </div>
+    <div class="row" style="margin-bottom: 0px !important;">
+    <div class="col s12">
+    <p >Revisa tu correo electrónico,revisa el correo no deseado.</p>
+    </div>
+    </div>
+    <div style="border: .5px solid #78909c; padding: 10px;">
+    <div class="row">
+    <div class="col s12">
+    <label>Correo electrónico</label>
+    <input required type="email" [(ngModel)]="usuario.correo"
+    placeholder="correo" value="profesor.correo">
+    </div>
+    </div>
+    <div class="row">
+    <div class="col s6 center">
+    <a (click)="cambiarContrasenya()" class=" modal-action modal-close
+    waves-effect waves-green btn-flat">Enviar</a>
+    </div>
+    <div class="col s6 center">
+    <a class=" modal-action modal-close waves-effect waves-green
+    btn-flat">Cancelar</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

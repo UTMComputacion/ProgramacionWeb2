@@ -1,0 +1,98 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a >Gimnasio</a></li>
+      <li>  <button data-target="modalCategorias" class="btn modal-trigger">Categorias</button>
+      </li>
+      <!--<li>  <button data-target="modalClientes" class="btn modal-trigger">Clientes</button>-->
+        <li>  <button (click)="visualizarFormularioCliente()" class="btn modal-trigger">Clientes</button>
+      </li>
+      <li>  <button (click)="visualizarFormularioProducto()" class="btn modal-trigger">Productos</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="modalCategorias" class="modal">
+  <div class="modal-content">
+    <div class="container left row">
+      <h4>Datos de categoria a ingresar</h4>
+          <div class="input-field">
+              <input [(ngModel)]="categoria.nombre" type="text"><label for="">Nombre</label>
+          </div>
+          <div class="input-field">
+              <input [(ngModel)]="categoria.descripcion" type="text"><label for="">Descripción</label>
+          </div>      
+          <div class="modal-footer">
+            <a (click)="agregarCategoria()" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+          </div>    
+  </div>
+  
+  </div>
+</div>
+
+
+<div id="modalProductos" class="modal">
+  <div class="modal-content">
+    <div class="container left row">
+      <h4>Datos del Producto a Ingresar: </h4>
+          <div class="input-field">
+              <input [(ngModel)]="producto.nombre" type="text"><label for="">Nombre</label>
+          </div>
+          <div class="input-field">
+              <input [(ngModel)]="producto.descripcion" type="text"><label for="">Descripción</label>
+          </div>  
+          <div class="input-field">
+            <input [(ngModel)]="producto.precio" type="number"><label for="">Precio</label>
+        </div>  
+        <div class="input-field">
+          <input [(ngModel)]="producto.cantidad" type="number"><label for="">Cantidad</label>
+      </div>      
+      <div class="input-field">
+        <input [(ngModel)]="producto.idCategoria" type="number"><label for="">Categoria</label>
+    </div>  
+          <div class="modal-footer">
+            <a (click)="agregarProducto()" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+          </div>    
+  </div>
+  
+  </div>
+</div>
+
+<div id="modalClientes" class="modal">
+  <div class="modal-content">
+
+        <h4>Datos de cliente a ingresar</h4>
+      
+          <div class="input-field">
+            <input [(ngModel)]="cliente.nombre"  type="text"><label for="">Nombre</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="cliente.edad" type="number"><label for="">Edad</label>
+          </div>
+          <select [(ngModel)]="cliente.tipoMembresia" *ngIf="membresias!=undefined" class="browser-default">
+                <option *ngFor="let membresia of membresias" [value]="membresia.tipo">{{membresia.nombre}} {{membresia.tipo}} </option>
+                
+          </select>
+        
+          <div class="input-field">
+            <input [(ngModel)]="cliente.fechaIni" type="text"><label for="">Fecha de inicio</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="cliente.fechaFin" type="text"><label for="">Fecha de finalización</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="cliente.sexo" type="text"><label for="">Género</label>
+          </div>
+          <div class="modal-footer">
+            <a (click)="agregarCliente()" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+          </div>    
+
+</div>
+</div>
+
+
+
+
+

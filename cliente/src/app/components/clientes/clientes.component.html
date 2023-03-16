@@ -1,0 +1,58 @@
+<div>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>nombre</th>
+      <th>edad</th>
+      <th>tipo Membresia</th>
+      <th>acciones</th>
+    </tr>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{cliente.id}}</td>
+      <td>{{cliente.nombre}}</td>
+      <td>{{cliente.edad}}</td>
+      <td>{{cliente.nombreMembresia}}</td>
+      <td><a (click)="eliminarCliente(cliente.id)"><i class="material-icons prefix">delete</i></a>
+        <a (click)="visualizarCliente(cliente.id)"><i class="material-icons prefix">remove_red_eye</i></a>
+       <!-- <a data-target="modalClientes" class="btn modal-trigger" (click)="editarCliente(cliente.id)"><i class="material-icons prefix">edit</i></a></td>  --> 
+        <a  (click)="editarFormularioCliente(cliente.id)"><i class="material-icons prefix">edit</i></a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div     id="modalClientesActualizar" class="modal">
+  <div class="modal-content">
+
+        <h4>Datos de cliente a ingresar</h4>
+      
+          <div class="input-field">
+            <input [(ngModel)]="clienteActual.nombre"  type="text"><label for="">Nombre</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="clienteActual.edad" type="number"><label for="">Edad</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="clienteActual.tipoMembresia" type="text"><label for="">Tipo de membresía</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="clienteActual.fechaIni" type="text"><label for="">Fecha de inicio</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="clienteActual.fechaFin" type="text"><label for="">Fecha de finalización</label>
+          </div>
+          <div class="input-field">
+            <input [(ngModel)]="clienteActual.sexo" type="text"><label for="">Género</label>
+          </div>
+          <div class="modal-footer">
+            <a (click)="actualizarCliente()" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+          </div>    
+  </div>
+</div>
+
+
+  
+
+
+  

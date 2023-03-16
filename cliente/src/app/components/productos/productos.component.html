@@ -1,0 +1,60 @@
+<div>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>descripcion</th>
+        <th>precio</th>
+        <th>cantidad</th>
+        <th>idCategoria</th>
+      </tr>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.cantidad}}</td>
+        <td>{{producto.idCategoria}}</td>
+
+        <td><a (click)="eliminarProducto(producto.id)"><i class="material-icons prefix">delete</i></a>
+          <a (click)="visualizarP(producto.id)"><i class="material-icons prefix">remove_red_eye</i></a>
+         <!-- <a data-target="modalClientes" class="btn modal-trigger" (click)="editarCliente(cliente.id)"><i class="material-icons prefix">edit</i></a></td>  --> 
+          <a  (click)="editarFormularioProducto(producto.id)"><i class="material-icons prefix">edit</i></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  
+  <div     id="modalProductosActualizar" class="modal">
+    <div class="modal-content">
+  
+          <h4>Datos de Producto a ingresar</h4>
+        
+            <div class="input-field">
+              <input [(ngModel)]="productoActual.nombre"  type="text"><label for="">Nombre</label>
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="productoActual.descripcion" type="text"><label for="">Descripcion</label>
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="productoActual.precio" type="number"><label for="">Precio</label>
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="productoActual.cantidad" type="number"><label for="">Cantidad</label>
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="productoActual.idCategoria" type="number"><label for="">Categoria</label>
+            </div>
+            <div class="modal-footer">
+              <a (click)="actualizarProducto()" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+            </div>    
+    </div>
+  </div>
+  
+  
+    
+  
+  
+    
+  

@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>nombre</th>
+    <th>descripcion</th>
+    <th>acciones</th>
+  </tr>
+  <tr *ngFor="let categoria of categorias">
+    <td>{{categoria.nombre}}</td>
+    <td>{{categoria.descripcion}}</td>
+    <td><a (click)="eliminarCategoria(categoria.idCategoria)"><i class="material-icons prefix">delete</i></a>
+      <a (click)="visualizarCategoria(categoria.idCategoria)"><i class="material-icons prefix">remove_red_eye</i></a>
+      <a (click)="editarCategoria(categoria.idCategoria)"><i class="material-icons prefix">edit</i></a>
+    </td>
+  </tr>
+
+</table>
+
+
+
