@@ -20,7 +20,7 @@ path: 'login',
 component: LoginComponent,
 },
 {
-    path: 'recuperar',
+    path: 'recuperar/:token',
     component: RecuperarComponent,
 },
 {

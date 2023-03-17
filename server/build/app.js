@@ -25,6 +25,7 @@ class Server {
     }
     routes() {
         this.app.post('/enviarCorreoRecuperarContrasenya', (req, res) => {
+            console.log("mandando el correo");
             correoAcceso(req.body);
         });
     }

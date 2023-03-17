@@ -8,7 +8,7 @@ export class Usuario{
     this.id = 0;
     this.nombre = '';
     this.tipo=0;
-    this.correo='ingenieria.computacion.utm@gmail.com';
+    this.correo='ingeneria.computacion.utm@gmail.com';
     this.password='prueba';
     }
     }

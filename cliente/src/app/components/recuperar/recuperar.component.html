@@ -1,1 +1,13 @@
-<p>recuperar works!</p>
+
+
+<div class="container">
+    <div class="input-field">
+        <label for="">Contraseña nueva</label>
+        <input type="password" [(ngModel)]="passwordNueva">
+    </div>
+    <div class="input-field">
+        <label for="">Repetir Contraseña</label>
+        <input type="password" [(ngModel)]="passwordCompara">
+    </div>
+    <button   (click)="enviarContrasenia">Actualizar</button>
+</div>

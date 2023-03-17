@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./recuperar.component.css']
 })
 export class RecuperarComponent {
+  passwordNueva : any
+  passwordCompara : any
+  enviarContrasenia(){
+    
+  }
 
 }
