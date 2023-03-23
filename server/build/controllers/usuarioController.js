@@ -19,8 +19,9 @@ class UsuariosController {
     verificaUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
-            const consulta = `SELECT tipo FROM usuarios WHERE correo="${req.body.correo}" and password="${req.body.password}"`;
+            const consulta = `SELECT tipo FROM usuarios WHERE correo="${req.body.correo}"`;
             console.log(consulta);
+            let prueba = yield bcryptjs_1.default.compare("", req.body.password);
             const respuesta = yield database_1.default.query(consulta);
             if (respuesta.length == 0) {
                 res.json(null);
@@ -62,6 +63,19 @@ class UsuariosController {
             let prueba = yield bcryptjs_1.default.compare("holota", req.body.password);
             console.log(prueba);
             const resp = yield database_1.default.query("INSERT INTO usuarios set ?", [req.body]);
+            res.json(resp);
+        });
+    }
+    CambiarPassword(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            let pass = req.body.password;
+            let cor = req.body.correo;
+            console.log(pass, cor);
+            const salt = yield bcryptjs_1.default.genSalt(10);
+            req.body.password = yield bcryptjs_1.default.hash(req.body.password, salt);
+            console.log(req.body.password);
+            const resp = yield database_1.default.query("UPDATE usuarios set password=? where correo=?", [req.body.password, req.body.correo]);
             res.json(resp);
         });
     }

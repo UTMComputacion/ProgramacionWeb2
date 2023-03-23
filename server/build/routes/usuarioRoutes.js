@@ -12,6 +12,7 @@ class UsuariosRoutes {
         this.router.post('/verificarUsuario', usuarioController_1.usuariosController.verificaUsuario);
         this.router.get('/esActivo/:id', usuarioController_1.usuariosController.esActivo);
         this.router.get('/', usuarioController_1.usuariosController.list);
+        this.router.post('/CambiarPassword', usuarioController_1.usuariosController.CambiarPassword);
         this.router.post('/', usuarioController_1.usuariosController.create);
     }
 }

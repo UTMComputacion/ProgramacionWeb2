@@ -4,8 +4,9 @@ import bcrypt from 'bcryptjs';
 class UsuariosController {
     public async verificaUsuario(req: Request, res: Response): Promise<void> {
         console.log(req.body)
-        const consulta = `SELECT tipo FROM usuarios WHERE correo="${req.body.correo}" and password="${req.body.password}"`;
+        const consulta = `SELECT tipo FROM usuarios WHERE correo="${req.body.correo}"`;
         console.log(consulta)
+        let prueba = await bcrypt.compare("", req.body.password);
         const respuesta = await pool.query(consulta);
         if (respuesta.length == 0) {
             res.json(null);
@@ -46,6 +47,20 @@ class UsuariosController {
         console.log(prueba)
         const resp = await pool.query("INSERT INTO usuarios set ?",
             [req.body]);
+
+        res.json(resp);
+    }
+    public async CambiarPassword(req: Request, res: Response): Promise<void> {
+        console.log(req.body);
+        let pass = req.body.password;
+        let cor=req.body.correo;
+        console.log(pass,cor);
+        const salt = await bcrypt.genSalt(10);
+        req.body.password = await bcrypt.hash(req.body.password, salt);
+        console.log(req.body.password)
+       
+     
+        const resp = await pool.query("UPDATE usuarios set password=? where correo=?",[req.body.password,req.body.correo]);
 
         res.json(resp);
     }

@@ -25,6 +25,10 @@ export class UsuarioService {
     return this.http.post(`${environment.API_URI}/usuarios/`, usuario);
 
   }
+  CambiarPassword(usuario: any) {
+    return this.http.post(`${environment.API_URI}/usuarios/CambiarPassword`, usuario);
+
+  }
 
   listOne(id: any) {
     return this.http.get(`${environment.API_URI}/usuarios/` + id);
